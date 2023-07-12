@@ -1,0 +1,14 @@
+INSERT INTO dad_sit.tb_position_history("Id", "PosId", "PosTitle", "EmployeeId", "StartDate", "EndDate")
+VALUES (1, '50000', 'IT Manager', '10105001', '2022-01-01', '2022-02-28'),
+       (2, '50001', 'IT Sr. Manager', '10105001', '2022-03-01', '2022-12-31'),
+       (3, '50002', 'Programmer Analyst', '10105002', '2022-01-01', '2022-02-28'),
+       (4, '50003', 'Sr. Programmer Analyst', '10105002', '2022-03-01', '2022-12-31'),
+       (5, '50004', 'IT Admin', '10105003', '2022-01-01', '2022-02-28'),
+       (6, '50005', 'IT Secretary', '10105003', '2022-03-01', '2022-12-31')
+ON CONFLICT ("Id")
+    DO UPDATE SET "PosId"      = EXCLUDED."PosId"
+                , "PosTitle"   = EXCLUDED."PosTitle"
+                , "EmployeeId" = EXCLUDED."EmployeeId"
+                , "StartDate"  = EXCLUDED."StartDate"
+                , "EndDate"    = EXCLUDED."EndDate"
+;
