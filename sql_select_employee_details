@@ -6,9 +6,9 @@ SELECT tep."EmployeeId"
      , tphl."PosTitle"
      , tphl."StartDate"
      , tphl."EndDate"
-FROM dad_sit.tb_employee_profile AS tep
+FROM tb_employee_profile AS tep
          INNER JOIN LATERAL (SELECT tph."PosId", tph."PosTitle", tph."StartDate", tph."EndDate"
-                             FROM dad_sit.tb_position_history AS tph
+                             FROM tb_position_history AS tph
                              WHERE 1 = 1
                                AND tep."EmployeeId" = tph."EmployeeId"
                              ORDER BY tph."StartDate" DESC
