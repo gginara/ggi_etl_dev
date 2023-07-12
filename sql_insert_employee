@@ -1,0 +1,10 @@
+INSERT INTO tb_employee_profile("EmployeeId", "FullName", "BirthDate", "Address")
+VALUES ('10105001', 'Ali Anton', '1982-08-13', 'Jakarta Utara'),
+       ('10105002', 'Rara Siva', '1982-01-01', 'Mandalika'),
+       ('10105003', 'Rini Aini', '1982-02-20', 'Sumbawa Besar'),
+       ('10105004', 'Budi', '1982-02-22', 'Mataram Kota')
+ON CONFLICT ("EmployeeId")
+    DO UPDATE SET "FullName"  = EXCLUDED."FullName"
+                , "BirthDate" = EXCLUDED."BirthDate"
+                , "Address"   = EXCLUDED."Address";
+;
